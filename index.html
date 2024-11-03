@@ -3,22 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Feelings Reveal</title>
+    <style>
+        /* Basic styles for the container and elements */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+      
+        /* Animation for the hand */
+        @keyframes appear {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes popUp {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Hidden initially */
+        .hidden {
+            display: none;
+        }
+
+        /* Message style */
+        p {
+            font-size: 18px;
+            color: #555;
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Click the button to see my feelings for you</h1>
         <button id="revealButton">Reveal</button>
-        <div id="heartContainer" class="hidden">
-            <div class="heart"></div>
+        <div id="handContainer" class="hidden">
+            <div class="finger thumb"></div> <!-- Thumb -->
+            <div class="finger"></div> <!-- Index finger -->
+            <div class="finger middle-finger"></div> <!-- Middle finger -->
+            <div class="finger"></div> <!-- Ring finger -->
+            <div class="finger"></div> <!-- Pinky finger -->
+            <div class="hand-base"></div> <!-- Hand base -->
         </div>
-        <p>I love you!</p>
+        <p id="message">Fuck you!</p>
     </div>
+    <script>
+        document.getElementById('revealButton').addEventListener('click', function() {
+            document.getElementById('handContainer').classList.remove('hidden');
+            document.getElementById('message').style.display = 'block';
+        });
+    </script>
 </body>
-<script>
-    document.getElementById('revealButton').addEventListener('click', function() {
-        document.getElementById('heartContainer').classList.remove('hidden');
-    });
-</script>
 </html>
